@@ -53,17 +53,17 @@ def find_trump():
                 except Exception as e:
                     print("click error:", e)
                 sleep(2)
-                pageSource = driver.page_source
-                cleand = cleanhtml(pageSource)
-                splitedSource = cleand.split(".")
-                for sentence in splitedSource:
-                    splitedSentence = sentence.split()
-                    for word in splitedSentence:
+                page_source = driver.page_source
+                cleaned_page = cleanhtml(page_source)
+                split_source = cleaned_page.split(".")
+                for sentence in split_source:
+                    split_sentence = sentence.split()
+                    for word in split_sentence:
                         if word.lower() == 'trump':
                             try:
                                 f = open("trump.txt", "a")
-                                sentenceToWright = " ".join(splitedSentence)
-                                f.write(sentenceToWright + "\n")
+                                sentence_to_write = " ".join(split_sentence)
+                                f.write(sentence_to_write + "\n")
                                 f.close()
                             except:
                                 print("problem2")
